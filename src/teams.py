@@ -5,8 +5,8 @@ import pymsteams
 from ipfabric import IPFClient
 from pydantic.dataclasses import dataclass
 
-from config import settings
-from models import Event
+from .config import settings
+from .models import Event
 
 logger = logging.getLogger()
 

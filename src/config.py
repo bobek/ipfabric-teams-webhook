@@ -1,5 +1,5 @@
 from pydantic import BaseSettings, BaseModel, Field
-from models import Event
+from .models import Event
 
 
 class Status(BaseModel):

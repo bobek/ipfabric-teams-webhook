@@ -3,10 +3,10 @@ import hmac
 import uvicorn
 from fastapi import FastAPI, Header, HTTPException, Request, status, BackgroundTasks
 from fastapi.responses import RedirectResponse, Response
-from models import Event
+from .models import Event
 
-from config import settings
-from teams import send_card
+from .config import settings
+from .teams import send_card
 
 app = FastAPI()
 
