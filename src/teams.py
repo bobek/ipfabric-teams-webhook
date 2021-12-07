@@ -20,15 +20,6 @@ class Link:
     url: str
 
 
-def file_download(event: Event):
-    ipf = IPFClient(settings.ipf_url, token=settings.ipf_token)
-    res = ipf.post('jobs/read', json=dict(force=True))
-    res.raise_for_status()
-    for job in res.json():
-        if job["downloadFile"] and job["status"] == 'done' and job["snapshot"] == event.snapshot.id:
-            return urljoin(settings.ipf_url, 'jobs/' + job["id"] + '/download')
-
-
 def snapshot(event: Event):
     if event.status == 'completed':
         if event.action == 'clone':
