@@ -1,10 +1,12 @@
+import logging
+from urllib.parse import urljoin
+
 import pymsteams
+from ipfabric import IPFClient
+from pydantic.dataclasses import dataclass
+
 from config import settings
 from models import Event
-from urllib.parse import urljoin
-from pydantic.dataclasses import dataclass
-from ipfabric import IPFClient
-import logging
 
 logger = logging.getLogger()
 
@@ -27,7 +29,7 @@ def snapshot(event: Event):
             return Link('Snapshot Cloned', url)
         elif event.action == 'download':
             url = urljoin(settings.ipf_url, SNAP_URL + event.snapshot.file)
-            return Link('Download Snapshot File', url)
+            return Link('Link available in Job Results', url)
         elif event.action == 'load':
             url = urljoin(settings.ipf_url, SNAP_URL + event.snapshot.id)
             return Link('Snapshot Loaded', url)
