@@ -10,7 +10,7 @@ WORKDIR /opt/ipf
 COPY requirements.txt requirements.txt
 RUN pip3 install -r requirements.txt
 
-COPY src src
+COPY ipf_teams ipf_teams
 
 EXPOSE 8000
-CMD [ "python3", "-m" , "uvicorn", "src.api:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD [ "python3", "-m" , "uvicorn", "ipf_teams.api:app", "--host", "0.0.0.0", "--port", "8000"]
